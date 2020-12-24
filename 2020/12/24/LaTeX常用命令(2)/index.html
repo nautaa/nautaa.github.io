@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>LaTeX常用命令(2) - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="LaTeX常用命令(2)">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-12-24 13:46" pubdate>
+        December 24, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">LaTeX常用命令(2)</h1>
+            
+            <div class="markdown-body">
+              <p>这是第二篇,主要写一下表格,列表,图的内容,还有上次没写到的参考文献.</p>
+<hr>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>LaTeX提供了无表格框线环境tabbing和有表格框线的tabular,tabular*,array,其中array是用于数学模式的表格环境.</p>
+<p>就我个人而言,主要使用tabular,array这两种表格环境.</p>
+<p>先来介绍<strong>tabular</strong></p>
+<p>tabular的命令结构如下:</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs tex">\begin&#123;tabular&#125;[位置]&#123;列格式&#125;<br>内容&amp; 内容&amp;&#x2F;&#x2F; %其中&amp; 表示分隔 ,&#x2F;&#x2F;表示换行<br>\end&#123;tabular&#125;<br></code></pre></td></tr></table></figure>
+
+<p>其中’位置’为可选参数,</p>
+<p>‘列格式’可以设置表格中数据的对齐方式,列宽,列间距等</p>
+<ul>
+<li>l 左对齐</li>
+<li>c 居中对齐</li>
+<li>r 右对齐</li>
+<li>| 画一条垂直线</li>
+<li>|| 画两条垂直线</li>
+<li>{n}{列格式} 用n次列格式 ,举例: *{3}{|c}相当于输入 |c|c|c</li>
+<li>@{声明} 它会将侧边与列之间的空白或是列与列之间的空白删除插入声明的内容</li>
+</ul>
+<p><strong>合并单元格</strong></p>
+<p>\cline{i-j}可以从第i列的左侧到第j列的右侧画一条线.</p>
+<p>\hline 画一条与列表宽度相同的水平线</p>
+<p>如果要合并行需要使用multirow 宏包,</p>
+<p>\multirow{n}*{内容} 表示合并n行以’内容’填充其中.</p>
+<p>\multicolumn{n}{列格式}{内容}表示合并n列,以’内容’填充,列格式与前面介绍的相同.下面举个例子来说明.</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs text">\documentclass[UTF8]&#123;ctexart&#125;<br>\usepackage&#123;multirow&#125;<br>\begin&#123;document&#125;<br>\begin&#123;tabular&#125;&#123;||c|c|c|c||&#125;<br>\hline<br>\multirow&#123;2&#125;*&#123;合并行&#125;&amp;\multicolumn&#123;3&#125;&#123;c||&#125;&#123;合并列&#125;\\<br>\cline&#123;2-4&#125;<br>&amp;测试&amp;测试&amp;测试\\<br>\hline<br>\end&#123;tabular&#125;<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://pic2.zhimg.com/80/v2-b1e312ddae0b39778eee21af6ef80a31_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p><strong>array</strong></p>
+<p>array需要使用宏包array</p>
+<p>array的命令结构如下:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">\begin&#123;array&#125;[位置]&#123;列格式&#125;<br>内容&amp; 内容&amp;// %其中&amp; 表示分隔 ,//表示换行<br>\end&#123;array&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以看到与tabular完全相同,array就是在数学模式中的表格环境.</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs text">\documentclass[UTF8]&#123;ctexart&#125;<br>\usepackage&#123;array&#125;<br>\begin&#123;document&#125;<br>\begin&#123;equation&#125;<br>\left\&#123;<br>\begin&#123;array&#125;&#123;*&#123;3&#125;&#123;l@&#123;+&#125;&#125;l@&#123;=&#125;l&#125;<br>a_&#123;11&#125;x_&#123;1&#125;&amp;a_&#123;12&#125;x_&#123;2&#125;&amp;\cdots&amp;a_&#123;1n&#125;x_n&amp;c_1\\<br>a_&#123;21&#125;x_&#123;1&#125;&amp;a_&#123;22&#125;x_&#123;2&#125;&amp;\cdots&amp;a_&#123;2n&#125;x_n&amp;c_2\\<br>a_&#123;i1&#125;x_&#123;1&#125;&amp;a_&#123;i2&#125;x_&#123;2&#125;&amp;\cdots&amp;a_&#123;in&#125;x_n&amp;c_i\\<br>a_&#123;m1&#125;x_&#123;1&#125;&amp;a_&#123;m2&#125;x_&#123;2&#125;&amp;\cdots&amp;a_&#123;mn&#125;x_n&amp;c_m\\ <br>\end&#123;array&#125;\right.<br>\end&#123;equation&#125;<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://pic1.zhimg.com/80/v2-ebac80d794b8c4c05496e75ccea1cdfc_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>列表环境有itemize,enumerate和description</p>
+<p>itemize相当于无序列表,enumerate相当于有序列表</p>
+<p>itemize的命令结构如下:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">\begin&#123;itemize&#125;<br>\item[标志] 条目<br>\end&#123;item&#125;<br></code></pre></td></tr></table></figure>
+
+<p>标志默认是实心大圆点,可以更改为其他标志,示例如下</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">\begin&#123;itemize&#125;<br>\item 第一条测试<br>\item[$\rightarrow$] 第二条测试<br>\end&#123;itemize&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://pic3.zhimg.com/80/v2-a276dfdc63a147ce4a75f5cb4b90bba6_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>排序列表enumerate前面的标号默认是1,2,3….,不再赘述</p>
+<h2 id="图形插入"><a href="#图形插入" class="headerlink" title="图形插入"></a>图形插入</h2><p>插图需使用graphics宏包</p>
+<p>常用的插图命令为</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">\includegraphics[参数1=选项,...]&#123;图名&#125;<br></code></pre></td></tr></table></figure>
+
+<p>下面介绍一下常用的参数</p>
+<ul>
+<li>height 插图的高度</li>
+<li>width 插图的宽度</li>
+<li>scale 相比于原图缩放系数</li>
+<li>angle 正值表示逆时针旋转,负值表示顺时针旋转</li>
+</ul>
+<p>当把图插入段落中时需使用figure环境,示例如下</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">\begin&#123;figure&#125;[htbp]%<br>	\centering<br>	\includegraphics [scale=0.6]&#123;test.jpg&#125;<br>	\caption&#123;测试&#125;%标题<br>\end&#123;figure&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>『h』当前位置。将图形放置在正文文本中给出该图形环境的地方。如果本页所剩的页面不够，这一参数将不起作用。<br>『t』顶部。将图形放置在页面的顶部。<br>『b』底部。将图形放置在页面的底部。<br>『p』浮动页。将图形放置在一只允许有浮动对象的页面上。</p>
+</blockquote>
+<p>当我们需要两个或多个图并排排列时,需使用minipage环境,示例如下:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs text">\begin&#123;figure&#125;[htbp]<br>	\centering<br>	\begin&#123;minipage&#125;[c]&#123;0.5\textwidth&#125;<br>		\centering<br>		\includegraphics[width=0.3\textwidth]&#123;test.jpg&#125;<br>		\caption&#123;测试1&#125;<br>	\end&#123;minipage&#125;%<br>	\begin&#123;minipage&#125;[c]&#123;0.5\textwidth&#125;<br>		\centering<br>		\includegraphics[width=0.3\textwidth]&#123;test.jpg&#125;<br>		\caption&#123;测试2&#125;<br>	\end&#123;minipage&#125;<br>\end&#123;figure&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>参考文献可以使用环境thebibliography,</p>
+<p>thebibliography的命令结构如下:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">\begin&#123;thebibliography&#125;&#123;最宽序号&#125;<br>\bibitem[文献序号1]&#123;检索名1&#125; 文献信息1<br>\end&#123;thebibliography&#125;<br></code></pre></td></tr></table></figure>
+
+<p>通常用99为最宽序号</p>
+<p>文献序号用于设置文献在参考文献中的序号,可以不填,默认为按顺序的阿拉伯数字</p>
+<p>检索名用于正文中的引用</p>
+<p><strong>引用命令</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">\cite&#123;检索名1,检索名2...&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<p>在参考文献较少时可以使用thebibliography环境,为了更好的管理文献可以使用BibTeX,文献管理程序.</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/LaTeX/">LaTeX</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/12/24/LaTeX%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4(3)/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">LaTeX常用命令(3)</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/23/LaTeX%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4(1)/">
+                        <span class="hidden-mobile">LaTeX常用命令(1)</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
