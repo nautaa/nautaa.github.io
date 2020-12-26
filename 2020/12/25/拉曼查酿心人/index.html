@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>LaTeX常用命令(3) - Hexo</title>
+  <title>拉曼查酿心人剧评 - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="LaTeX常用命令(3)">
+            <span class="h2" id="subtitle" title="拉曼查酿心人剧评">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-24 13:49" pubdate>
-        December 24, 2020 pm
+      <time datetime="2020-12-25 22:49" pubdate>
+        December 25, 2020 pm
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      604 字
+      539 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      5
        分钟
     </span>
   
@@ -224,75 +224,17 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">LaTeX常用命令(3)</h1>
+            <h1 style="display: none">拉曼查酿心人剧评</h1>
             
             <div class="markdown-body">
-              <p>这次主要写一些数学相关的东西.</p>
-<hr>
-<p>在LaTeX中最常用到的就是文本模式和数学模式.数学模式又分为行内公式和行间公式两种.</p>
-<p>简单来说,行内公式就是将数学式子写在文本行中,与文本融为一体,适用于比较简单的式子,比如说: <img src="https://www.zhihu.com/equation?tex=a%5E2+b%5E2=c%5E2" srcset="/img/loading.gif" alt="[公式]"> .</p>
-<p>而行间公式是将数学式插在文本行之间,自成一行.适用于较复杂的式子.</p>
-<p>行内公式的三种形式</p>
-<ul>
-<li>$…….$</li>
-<li>(…….)</li>
-<li>\begin{math}……..\end{math}</li>
-</ul>
-<p>排版效果都相同,我一般使用第一种方法.</p>
-<p>行间公式的三种形式</p>
-<ul>
-<li>$$……..$$</li>
-<li>[……….]</li>
-<li>\begin{displaymath}…..\end{displaymath}</li>
-</ul>
-<p>排版效果都相同,我一般使用第一种或第二种方法.</p>
-<p>除此之外,还可以使用equation公式环境,会自动生成带序号的行间公式.</p>
-<p>数学相关的宏包比较多,一般来说,公式宏包amsmath和字符宏包amssymb是最常用的.</p>
-<p><strong>常用数学符号</strong></p>
-<p>这里偷个懒,用一下刘海样老师的《LaTeX入门》中整理的数学符号。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-ccda495fa31337b40f2621cc43f91234_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="https://pic1.zhimg.com/80/v2-57501edad60547ac7caeedde28649960_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="https://pic3.zhimg.com/80/v2-42210e5e4377b1a88983b254c506327a_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="https://pic4.zhimg.com/80/v2-710f0732753a1b2226612ede151bcdf3_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="https://pic2.zhimg.com/80/v2-c588ef9e531c12e3fc0cda3ca9884875_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="https://pic4.zhimg.com/80/v2-d59db9aaa09c749eb6cf54e2f8e0def3_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="https://pic3.zhimg.com/80/v2-e8d8c9a5dfb8ebae49a285a424aea0d2_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>同时如果遇到不会打的符号可以通过<a target="_blank" rel="noopener" href="http://detexify.kirelabs.org/classify.html">这个</a>网站手写查询。</p>
-<p>\boldmath 用来加粗数学符号，如向量。需用在数学模式之外。例：\boldmath$\alpha$</p>
-<p>斜体大写希腊字母：\mathnormal</p>
-<p>粗斜体希腊字母：\boldsymbol</p>
-<p>空心大写字母：\mathbb</p>
-<p>公式中如果需要文字可以使用\text{文字}，将文字插入公式中。</p>
-<p>\frac 与\dfrac</p>
-<p>\frac生成的公式会在高度上压缩，\dfrac可以避免这个问题。</p>
-<p>实例图如下</p>
-<p><img src="https://pic1.zhimg.com/80/v2-baf4a635dee001d47e0fcd15af6be6d8_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>上下标：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">\sum_&#123;i=1&#125;^&#123;n&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://pic4.zhimg.com/80/v2-be129ea3fea5f7b44f600cba5203c507_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>多行上下标：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">$$\lim\limits_&#123;\substack&#123;P\to P_0\\P\in D&#125;&#125;f(P)=f(P_0)$$<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://pic2.zhimg.com/80/v2-82cb750d832ad886665b9a0afe7e31f5_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>数学中的表格环境之前有介绍到，这里就不重复了。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35041879">LaTeX-我的常用命令(2)</a></p>
-<p>定理环境：</p>
-<p>需要先使用定义定理类环境的命令：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">\newtheorem&#123;环境名&#125;[]&#123;标题&#125;[]<br></code></pre></td></tr></table></figure>
-
-<p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">\newtheorem&#123;defi&#125;&#123;定义&#125;<br>\begin&#123;defi&#125;<br>$a^2+b^2=c^2$<br>\end&#123;defi&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://pic1.zhimg.com/80/v2-4dd330bed972976bb98583e69c17c940_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>数学模式中的空白</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">\quad<br>\qquad<br>\,%大小约为3/18个\quad<br>\;%5/18\quad<br>\:%4/18\quad可用于对空白的控制<br></code></pre></td></tr></table></figure>
-
-<p>自适应的放大命令</p>
-<p>可根据内容自动放大括号</p>
-<p>示例</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">\left(\drac&#123;\frac ab +c&#125;&#123;d&#125;\right)<br>%如果只出现左半边括号，也需要在另一端加\right.<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://pic3.zhimg.com/80/v2-f0b53419bc0f01609f5507debf855cf6_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+              <p><img src="https://i.loli.net/2020/12/26/sA1recgftJ7VuX6.jpg" srcset="/img/loading.gif" alt="d4fd92bd8104c4b6c99d7c0c67930ae"></p>
+<p>第一次去看这种环境话剧,一开始还很期待环境话剧的演出形式.  不像是观众在台下,演员在台上的那种传统演出形式.  演员和观众有了更多的互动, 观众也随着演出的转场而移步换景, 好像剧中的故事真的就发生在自己周围, 沉浸感十足.</p>
+<p>拉曼查是西班牙的葡萄酒产区,故事也主要发生在这个地方. 辛雨追寻男朋友路涛的脚步来到了西班牙,然而却和路涛产生了矛盾. 后来房东姐姐过来安慰辛雨,并帮她安排了在拉曼查采摘葡萄的”高薪工作”. 其实在这里就可以大概猜出路涛的退缩可能就是因为房东丽娜. 后来,辛雨来到拉曼查,邂逅了罗蒙,在拉曼查的生活让辛雨逐渐和过去的自己和解,和路涛和解. 葡萄酿酒,拉曼查酿心. 最后辛雨接受了罗蒙的追求,留在了西班牙,留在了拉曼查.</p>
+<p><img src="https://i.loli.net/2020/12/26/vrfkxd6uq29bwIz.jpg" srcset="/img/loading.gif" alt="b9c42b5aeaf3d86d81416418b69437d"></p>
+<p>故事比较简单,其中的许多细节都很用心.比如现场的环境布置, 跟着演员一起走过他们在马德里的屋子,坐着前往拉曼查的火车,到拉曼查的酒庄,都有一种身临其境的感觉. 其中一幕是观众隔着窗户和百叶窗在看,虽然听不到演员的对白,我站的比较靠后也没看到他们在屋子里发生了什么.但这就给观众一种置身其中而又旁观的感觉.还有在从马德里到拉曼查的路上,手电筒的光打在积木上,手电筒缓缓移动,在墙上打出火车行进的光影,特别惊喜.中间还穿插的很多的吉他,钢琴演奏还有歌舞.虽然我不太喜欢太多的歌舞元素,可能还是比较喜欢讲故事多一点吧.</p>
+<p>ps: clickhouse在圣诞节的彩蛋,后面应该会写clickhouse的内容啦.</p>
+<p>Happy new year.</p>
+<p><img src="https://i.loli.net/2020/12/26/vioFQObKH5h7S3N.png" srcset="/img/loading.gif" alt="f83fca24b7371cd9d257914514c3ebf"></p>
 
             </div>
             <hr>
@@ -303,7 +245,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/LaTeX/">LaTeX</a>
+                      <a class="hover-with-bg" href="/tags/%E6%88%8F%E5%89%A7/">戏剧</a>
                     
                   </div>
                 
@@ -316,18 +258,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/25/%E6%8B%89%E6%9B%BC%E6%9F%A5%E9%85%BF%E5%BF%83%E4%BA%BA/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">拉曼查酿心人剧评</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/24/LaTeX%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4(2)/">
-                        <span class="hidden-mobile">LaTeX常用命令(2)</span>
+                      <a href="/2020/12/24/LaTeX%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4(3)/">
+                        <span class="hidden-mobile">LaTeX常用命令(3)</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
