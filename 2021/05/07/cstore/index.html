@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>LaTeX常用命令(3) - nauta</title>
+  <title>C-store - nauta</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -150,7 +150,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="LaTeX常用命令(3)">
+            <span class="h2" id="subtitle" title="C-store">
               
             </span>
 
@@ -160,8 +160,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-24 13:49" pubdate>
-        December 24, 2020 pm
+      <time datetime="2021-05-07 21:18" pubdate>
+        May 7, 2021 pm
       </time>
     </span>
   
@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      604 字
+      1.4k 字
     </span>
   
 
@@ -182,7 +182,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      15
        分钟
     </span>
   
@@ -212,75 +212,57 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">LaTeX常用命令(3)</h1>
+            <h1 style="display: none">C-store</h1>
             
             <div class="markdown-body">
-              <p>这次主要写一些数学相关的东西.</p>
-<hr>
-<p>在LaTeX中最常用到的就是文本模式和数学模式.数学模式又分为行内公式和行间公式两种.</p>
-<p>简单来说,行内公式就是将数学式子写在文本行中,与文本融为一体,适用于比较简单的式子,比如说: <img src="https://www.zhihu.com/equation?tex=a%5E2+b%5E2=c%5E2" srcset="/img/loading.gif" alt="[公式]"> .</p>
-<p>而行间公式是将数学式插在文本行之间,自成一行.适用于较复杂的式子.</p>
-<p>行内公式的三种形式</p>
+              <h2 id="A-Column-oriented-DBMS"><a href="#A-Column-oriented-DBMS" class="headerlink" title="A Column-oriented DBMS"></a>A Column-oriented DBMS</h2><h3 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h3><h3 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h3><p>优化更新和优化读的数据结构之间存在矛盾。比如，当数据是按条目到达顺序存储时，可以在列的末尾以批处理或事务方式有效地插入新数据项。但是，这样读的代价会比较大。然而，以非数据到达顺序存储将使插入的代价昂贵。</p>
+<p>C-Store从一个全新的角度解决了这个难题。将一个read-optimized的列存储和一个面向更新/插入的writeable store组合在一个系统中，由tuple mover连接。在top level，有一个小型的writeable store(WS)组件，它的体系结构支持高性能插入和更新。还有一个更大的组件称为read-optimized store(RS)，它能够支持非常大量的存储。RS只支持一种非常受限的插入形式，即记录从WS批量移动到RS，这是tuple mover要做的。</p>
+<p><img src="https://i.loli.net/2021/04/29/fo4l2xmXRA5iNSa.png" srcset="/img/loading.gif" alt="image-20210429205327568"></p>
+<p>查询必须同时访问两个存储系统中的数据。插入被发送到WS，而删除必须被发送到WS。在RS中标记，以便稍后由元组移动器清除。更新实现为插入和删除。为了支持高速tuple mover，通过高效的有序合并方法将元组从WS批量移动到RS。</p>
+<h4 id="features-of-C-Store"><a href="#features-of-C-Store" class="headerlink" title="features of C-Store"></a>features of C-Store</h4><ol>
+<li>一个混合架构，其中WS针对频繁插入和更新进行了优化，RS针对查询性能进行了优化。</li>
+<li>表中的数据以不同顺序在几个overlapping projetions中冗余存储，以便使用最有利的projection来解决查询。</li>
+<li>使用多种编码方案中的一种高度压缩列。</li>
+<li>面向列的优化器和执行器，具有不同于面向行系统中的原语。</li>
+<li>使用足够数量的overlapping projections，通过K-safety实现高可用和改进性能。</li>
+<li>使用快照隔离以避免2PC和锁。</li>
+</ol>
+<p>C-Store在物理上存储多组列集。在一个group中每个列按某些属性排序。按相同属性排序的列组称为 projection ;同一列可能存在于多个投影中，可能按每个投影中的不同属性排序。多个排序器可以优化查询。</p>
+<p>在这里可以看出projection的概念和通常的projection不同。</p>
+<p>存储overlapping projections进一步提高了性能，即使某个服务器发生故障，也可以访问数据。我们称能容忍K次故障的系统为K-safe。</p>
+<h3 id="data-model"><a href="#data-model" class="headerlink" title="data model"></a>data model</h3><p><img src="https://i.loli.net/2021/04/29/o37BMhtYy1eHxZQ.png" srcset="/img/loading.gif" alt="image-20210429212712875"></p>
+<p><img src="https://i.loli.net/2021/04/29/3OAKaQJ8MlHzsPd.png" srcset="/img/loading.gif" alt="image-20210429212725069"></p>
+<p>将排序键附加到由竖线分隔的投影上来指示projection的排序顺序。</p>
+<p><img src="https://i.loli.net/2021/04/29/7YQv4Pb8pMfRNUt.png" srcset="/img/loading.gif" alt="image-20210429212927647"></p>
+<p>每个projection horizontally划分为1个或多个segment，segment被赋予一个Sid。在一个projection中基于sort key划分segment。</p>
+<p>storage key在RS中编号为1、2、3，并不是物理存储的，而是从列中的元组的物理位置推断出来的。storage key在WS中物理存在，并以整数表示，比RS中任何段的最大整数storage key都大。</p>
+<p>join index  (sid, storage_key)</p>
+<p><img src="https://i.loli.net/2021/04/29/esMbj9ANw4qrigZ.png" srcset="/img/loading.gif" alt="image-20210429214528175"></p>
+<h3 id="RS"><a href="#RS" class="headerlink" title="RS"></a>RS</h3><h4 id="encoding"><a href="#encoding" class="headerlink" title="encoding"></a>encoding</h4><p><strong>self order</strong> the column ordered by values in that column（按列中的值排序，即该列在sort key中）</p>
+<p><strong>foreign-order</strong> by corresponding values of some other column in the same projection（该列不在sort key中）</p>
 <ul>
-<li>$…….$</li>
-<li>(…….)</li>
-<li>\begin{math}……..\end{math}</li>
-</ul>
-<p>排版效果都相同,我一般使用第一种方法.</p>
-<p>行间公式的三种形式</p>
+<li><p>self order few distinct values：三元组序列(v, f, n)表示，v是存储在列中的值，f是v在列中第一次出现的位置，n是v在列中出现的次数。</p>
+</li>
+<li><p>foreign order few distinct values: (v, b)， v是存储在列中的值，b是一个位图，表示该值存储在哪个位置</p>
 <ul>
-<li>$$……..$$</li>
-<li>[……….]</li>
-<li>\begin{displaymath}…..\end{displaymath}</li>
+<li>0,0,1,1,2,1,0,2,1, we can Type 2-encode this as three pairs: (0, 110000100), (1, 001101001), and(2,000010010)</li>
 </ul>
-<p>排版效果都相同,我一般使用第一种或第二种方法.</p>
-<p>除此之外,还可以使用equation公式环境,会自动生成带序号的行间公式.</p>
-<p>数学相关的宏包比较多,一般来说,公式宏包amsmath和字符宏包amssymb是最常用的.</p>
-<p><strong>常用数学符号</strong></p>
-<p>这里偷个懒,用一下刘海样老师的《LaTeX入门》中整理的数学符号。</p>
-<p><img src="https://pic1.zhimg.com/80/v2-ccda495fa31337b40f2621cc43f91234_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="https://pic1.zhimg.com/80/v2-57501edad60547ac7caeedde28649960_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="https://pic3.zhimg.com/80/v2-42210e5e4377b1a88983b254c506327a_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="https://pic4.zhimg.com/80/v2-710f0732753a1b2226612ede151bcdf3_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="https://pic2.zhimg.com/80/v2-c588ef9e531c12e3fc0cda3ca9884875_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="https://pic4.zhimg.com/80/v2-d59db9aaa09c749eb6cf54e2f8e0def3_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><img src="https://pic3.zhimg.com/80/v2-e8d8c9a5dfb8ebae49a285a424aea0d2_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>同时如果遇到不会打的符号可以通过<a target="_blank" rel="noopener" href="http://detexify.kirelabs.org/classify.html">这个</a>网站手写查询。</p>
-<p>\boldmath 用来加粗数学符号，如向量。需用在数学模式之外。例：\boldmath$\alpha$</p>
-<p>斜体大写希腊字母：\mathnormal</p>
-<p>粗斜体希腊字母：\boldsymbol</p>
-<p>空心大写字母：\mathbb</p>
-<p>公式中如果需要文字可以使用\text{文字}，将文字插入公式中。</p>
-<p>\frac 与\dfrac</p>
-<p>\frac生成的公式会在高度上压缩，\dfrac可以避免这个问题。</p>
-<p>实例图如下</p>
-<p><img src="https://pic1.zhimg.com/80/v2-baf4a635dee001d47e0fcd15af6be6d8_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>上下标：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">\sum_&#123;i=1&#125;^&#123;n&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://pic4.zhimg.com/80/v2-be129ea3fea5f7b44f600cba5203c507_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>多行上下标：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">$$\lim\limits_&#123;\substack&#123;P\to P_0\\P\in D&#125;&#125;f(P)=f(P_0)$$<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://pic2.zhimg.com/80/v2-82cb750d832ad886665b9a0afe7e31f5_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>数学中的表格环境之前有介绍到，这里就不重复了。<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35041879">LaTeX-我的常用命令(2)</a></p>
-<p>定理环境：</p>
-<p>需要先使用定义定理类环境的命令：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">\newtheorem&#123;环境名&#125;[]&#123;标题&#125;[]<br></code></pre></td></tr></table></figure>
-
-<p>示例：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">\newtheorem&#123;defi&#125;&#123;定义&#125;<br>\begin&#123;defi&#125;<br>$a^2+b^2=c^2$<br>\end&#123;defi&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://pic1.zhimg.com/80/v2-4dd330bed972976bb98583e69c17c940_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>数学模式中的空白</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">\quad<br>\qquad<br>\,%大小约为3/18个\quad<br>\;%5/18\quad<br>\:%4/18\quad可用于对空白的控制<br></code></pre></td></tr></table></figure>
-
-<p>自适应的放大命令</p>
-<p>可根据内容自动放大括号</p>
-<p>示例</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">\left(\drac&#123;\frac ab +c&#125;&#123;d&#125;\right)<br>%如果只出现左半边括号，也需要在另一端加\right.<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://pic3.zhimg.com/80/v2-f0b53419bc0f01609f5507debf855cf6_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+</li>
+<li><p>Self-order, many distinct values:将列中的每个值表示为与列中前一个值的增量。</p>
+<ul>
+<li>1,4,7,7,8,12 would be represented by the sequence: 1,3,3,0,1,4</li>
+</ul>
+</li>
+<li><p>Foreign-order, many distinct values： leave the values unencoded</p>
+</li>
+</ul>
+<h3 id="WS"><a href="#WS" class="headerlink" title="WS"></a>WS</h3><p>WS也是一个列存储，实现了与RS相同的物理设计。因此，WS中存在相同的projection和join index。但是，存储表示形式有很大的不同，因为WS必须以事务方式有效地更新。</p>
+<p>SK 显示存储</p>
+<p>WS的水平分区方式与RS相同，因此RS segment与WS segment之间是1:1的映射。</p>
+<p>假设WS size比较小 不压缩; 直接表示所有数据。因此，每个projection使用b -树索引，以保持逻辑排序键顺序。</p>
+<p>WS projection中的每一列都表示为(v, sk)，这样v是列中的值，sk是其对应的storage key。每个对在storage key上用b树表示。每个projection的sort key被另外表示为(s, sk)，这样s是一个排序键值，sk是描述s第一次出现的storage key。同样，这个结构表示为sort key上的b树。要使用sort key search，可以使用后一个b -树查找storage key，然后使用前一个b -树集合查找记录中的其他字段。</p>
+<h3 id="storage-management"><a href="#storage-management" class="headerlink" title="storage management"></a>storage management</h3><p>projection中的一个segment中的所有列存储在一个服务器节点上。join index和segment存储在一起。ws和相同key range的rs存储在一起。</p>
+<h3 id="tuple-mover"><a href="#tuple-mover" class="headerlink" title="tuple mover"></a>tuple mover</h3><p>将创建一个新的RS segment，我们称之为RS’。然后，它从RS段的列中读入块，删除delete record vector值小于或等于low water mark的任何RS项，并合并来自WS的列值。然后将合并的数据写入新的RS段，该段随着合并的进行而增长。这种old master/new master将比就地更新策略更有效，因为基本上所有数据对象都将移动。需要维护join index.</p>
 
             </div>
             <hr>
@@ -291,7 +273,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/LaTeX/">LaTeX</a>
+                      <a class="hover-with-bg" href="/tags/paper-reading/">paper reading</a>
                     
                   </div>
                 
@@ -304,18 +286,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/25/%E6%8B%89%E6%9B%BC%E6%9F%A5%E9%85%BF%E5%BF%83%E4%BA%BA/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">拉曼查酿心人剧评</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/24/LaTeX%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4(2)/">
-                        <span class="hidden-mobile">LaTeX常用命令(2)</span>
+                      <a href="/2021/05/07/x-engine/">
+                        <span class="hidden-mobile">X-engine</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

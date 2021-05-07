@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>LaTeX常用命令(2) - nauta</title>
+  <title>X-engine - nauta</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -150,7 +150,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="LaTeX常用命令(2)">
+            <span class="h2" id="subtitle" title="X-engine">
               
             </span>
 
@@ -160,8 +160,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-12-24 13:46" pubdate>
-        December 24, 2020 pm
+      <time datetime="2021-05-07 16:04" pubdate>
+        May 7, 2021 pm
       </time>
     </span>
   
@@ -172,7 +172,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.7k 字
     </span>
   
 
@@ -182,7 +182,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17
+      21
        分钟
     </span>
   
@@ -212,89 +212,85 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">LaTeX常用命令(2)</h1>
+            <h1 style="display: none">X-engine</h1>
             
             <div class="markdown-body">
-              <p>这是第二篇,主要写一下表格,列表,图的内容,还有上次没写到的参考文献.</p>
-<hr>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>LaTeX提供了无表格框线环境tabbing和有表格框线的tabular,tabular*,array,其中array是用于数学模式的表格环境.</p>
-<p>就我个人而言,主要使用tabular,array这两种表格环境.</p>
-<p>先来介绍<strong>tabular</strong></p>
-<p>tabular的命令结构如下:</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs tex">\begin&#123;tabular&#125;[位置]&#123;列格式&#125;<br>内容&amp; 内容&amp;&#x2F;&#x2F; %其中&amp; 表示分隔 ,&#x2F;&#x2F;表示换行<br>\end&#123;tabular&#125;<br></code></pre></td></tr></table></figure>
-
-<p>其中’位置’为可选参数,</p>
-<p>‘列格式’可以设置表格中数据的对齐方式,列宽,列间距等</p>
+              <h2 id="X-engine"><a href="#X-engine" class="headerlink" title="X-engine"></a>X-engine</h2><h3 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h3><h3 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h3><p>网上电子商务交易有三个显著特征</p>
 <ul>
-<li>l 左对齐</li>
-<li>c 居中对齐</li>
-<li>r 右对齐</li>
-<li>| 画一条垂直线</li>
-<li>|| 画两条垂直线</li>
-<li>{n}{列格式} 用n次列格式 ,举例: *{3}{|c}相当于输入 |c|c|c</li>
-<li>@{声明} 它会将侧边与列之间的空白或是列与列之间的空白删除插入声明的内容</li>
+<li><p>The tsunami problem</p>
+<p>从11月11日00:00:00开始，底层存储引擎的事务工作负载(反映为每秒事务与时间的垂直峰值)急剧增加，就像一场巨大的海啸袭击了海岸。</p>
+</li>
 </ul>
-<p><strong>合并单元格</strong></p>
-<p>\cline{i-j}可以从第i列的左侧到第j列的右侧画一条线.</p>
-<p>\hline 画一条与列表宽度相同的水平线</p>
-<p>如果要合并行需要使用multirow 宏包,</p>
-<p>\multirow{n}*{内容} 表示合并n行以’内容’填充其中.</p>
-<p>\multicolumn{n}{列格式}{内容}表示合并n列,以’内容’填充,列格式与前面介绍的相同.下面举个例子来说明.</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs text">\documentclass[UTF8]&#123;ctexart&#125;<br>\usepackage&#123;multirow&#125;<br>\begin&#123;document&#125;<br>\begin&#123;tabular&#125;&#123;||c|c|c|c||&#125;<br>\hline<br>\multirow&#123;2&#125;*&#123;合并行&#125;&amp;\multicolumn&#123;3&#125;&#123;c||&#125;&#123;合并列&#125;\\<br>\cline&#123;2-4&#125;<br>&amp;测试&amp;测试&amp;测试\\<br>\hline<br>\end&#123;tabular&#125;<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://pic2.zhimg.com/80/v2-b1e312ddae0b39778eee21af6ef80a31_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p><strong>array</strong></p>
-<p>array需要使用宏包array</p>
-<p>array的命令结构如下:</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">\begin&#123;array&#125;[位置]&#123;列格式&#125;<br>内容&amp; 内容&amp;// %其中&amp; 表示分隔 ,//表示换行<br>\end&#123;array&#125;<br></code></pre></td></tr></table></figure>
-
-<p>可以看到与tabular完全相同,array就是在数学模式中的表格环境.</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs text">\documentclass[UTF8]&#123;ctexart&#125;<br>\usepackage&#123;array&#125;<br>\begin&#123;document&#125;<br>\begin&#123;equation&#125;<br>\left\&#123;<br>\begin&#123;array&#125;&#123;*&#123;3&#125;&#123;l@&#123;+&#125;&#125;l@&#123;=&#125;l&#125;<br>a_&#123;11&#125;x_&#123;1&#125;&amp;a_&#123;12&#125;x_&#123;2&#125;&amp;\cdots&amp;a_&#123;1n&#125;x_n&amp;c_1\\<br>a_&#123;21&#125;x_&#123;1&#125;&amp;a_&#123;22&#125;x_&#123;2&#125;&amp;\cdots&amp;a_&#123;2n&#125;x_n&amp;c_2\\<br>a_&#123;i1&#125;x_&#123;1&#125;&amp;a_&#123;i2&#125;x_&#123;2&#125;&amp;\cdots&amp;a_&#123;in&#125;x_n&amp;c_i\\<br>a_&#123;m1&#125;x_&#123;1&#125;&amp;a_&#123;m2&#125;x_&#123;2&#125;&amp;\cdots&amp;a_&#123;mn&#125;x_n&amp;c_m\\ <br>\end&#123;array&#125;\right.<br>\end&#123;equation&#125;<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://pic1.zhimg.com/80/v2-ebac80d794b8c4c05496e75ccea1cdfc_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>列表环境有itemize,enumerate和description</p>
-<p>itemize相当于无序列表,enumerate相当于有序列表</p>
-<p>itemize的命令结构如下:</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">\begin&#123;itemize&#125;<br>\item[标志] 条目<br>\end&#123;item&#125;<br></code></pre></td></tr></table></figure>
-
-<p>标志默认是实心大圆点,可以更改为其他标志,示例如下</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">\begin&#123;itemize&#125;<br>\item 第一条测试<br>\item[$\rightarrow$] 第二条测试<br>\end&#123;itemize&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://pic3.zhimg.com/80/v2-a276dfdc63a147ce4a75f5cb4b90bba6_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
-<p>排序列表enumerate前面的标号默认是1,2,3….,不再赘述</p>
-<h2 id="图形插入"><a href="#图形插入" class="headerlink" title="图形插入"></a>图形插入</h2><p>插图需使用graphics宏包</p>
-<p>常用的插图命令为</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">\includegraphics[参数1=选项,...]&#123;图名&#125;<br></code></pre></td></tr></table></figure>
-
-<p>下面介绍一下常用的参数</p>
+<p><img src="https://i.loli.net/2021/05/07/5WIH1gBxqTfyEZl.png" srcset="/img/loading.gif" alt="image-20210507161101933"></p>
 <ul>
-<li>height 插图的高度</li>
-<li>width 插图的宽度</li>
-<li>scale 相比于原图缩放系数</li>
-<li>angle 正值表示逆时针旋转,负值表示顺时针旋转</li>
+<li><p>The flood discharge problem</p>
+<p>存储引擎必须能够在处理高并发电子商务的同时，将数据从主存快速移动到持久存储(即，释放内存中积累的洪水)</p>
+</li>
+<li><p>The fast-moving current problem</p>
+<p>数据库缓存中的热记录会不断变化，任何记录的温度都可能迅速地从冷/暖变化到热或热到冷/暖。存储引擎需要确保能够尽快从深水中检索并有效地存储新出现的热记录。</p>
+</li>
 </ul>
-<p>当把图插入段落中时需使用figure环境,示例如下</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">\begin&#123;figure&#125;[htbp]%<br>	\centering<br>	\includegraphics [scale=0.6]&#123;test.jpg&#125;<br>	\caption&#123;测试&#125;%标题<br>\end&#123;figure&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>『h』当前位置。将图形放置在正文文本中给出该图形环境的地方。如果本页所剩的页面不够，这一参数将不起作用。<br>『t』顶部。将图形放置在页面的顶部。<br>『b』底部。将图形放置在页面的底部。<br>『p』浮动页。将图形放置在一只允许有浮动对象的页面上。</p>
-</blockquote>
-<p>当我们需要两个或多个图并排排列时,需使用minipage环境,示例如下:</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs text">\begin&#123;figure&#125;[htbp]<br>	\centering<br>	\begin&#123;minipage&#125;[c]&#123;0.5\textwidth&#125;<br>		\centering<br>		\includegraphics[width=0.3\textwidth]&#123;test.jpg&#125;<br>		\caption&#123;测试1&#125;<br>	\end&#123;minipage&#125;%<br>	\begin&#123;minipage&#125;[c]&#123;0.5\textwidth&#125;<br>		\centering<br>		\includegraphics[width=0.3\textwidth]&#123;test.jpg&#125;<br>		\caption&#123;测试2&#125;<br>	\end&#123;minipage&#125;<br>\end&#123;figure&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>参考文献可以使用环境thebibliography,</p>
-<p>thebibliography的命令结构如下:</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">\begin&#123;thebibliography&#125;&#123;最宽序号&#125;<br>\bibitem[文献序号1]&#123;检索名1&#125; 文献信息1<br>\end&#123;thebibliography&#125;<br></code></pre></td></tr></table></figure>
-
-<p>通常用99为最宽序号</p>
-<p>文献序号用于设置文献在参考文献中的序号,可以不填,默认为按顺序的阿拉伯数字</p>
-<p>检索名用于正文中的引用</p>
-<p><strong>引用命令</strong></p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">\cite&#123;检索名1,检索名2...&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<p>在参考文献较少时可以使用thebibliography环境,为了更好的管理文献可以使用BibTeX,文献管理程序.</p>
+<h3 id="system-overview"><a href="#system-overview" class="headerlink" title="system overview"></a>system overview</h3><p><img src="https://i.loli.net/2021/05/07/yl5bKwFj24dQScY.png" srcset="/img/loading.gif" alt="image-20210507162545654"></p>
+<p>类似 lsm tree structure</p>
+<h3 id="detailed-design"><a href="#detailed-design" class="headerlink" title="detailed design"></a>detailed design</h3><h4 id="read-path"><a href="#read-path" class="headerlink" title="read path"></a>read path</h4><p><img src="https://i.loli.net/2021/05/07/iVfPCRubhBpJvUy.png" srcset="/img/loading.gif" alt="image-20210507165025736"></p>
+<p>extent ,类似SSTable, 每个extent包含了若干data blocks,schema data,block index.</p>
+<p>data block: row-oriented,schema data: the types of each column,block index: the offset for each data block.</p>
+<p>an extent 2MB across all levels. (extents reuse during compactions)</p>
+<p>当向表中添加新列时，我们只需要在新版本的新extent上强制使用这个新列，而不需要修改任何现有的extent。当查询读取具有不同版本schema的extent时，会与最新版本的extent一致，并在旧版本中填充记录的空属性的默认值。</p>
+<p><img src="https://i.loli.net/2021/05/07/R8PcTptgdSkeBH1.png" srcset="/img/loading.gif" alt="image-20210507170114059"></p>
+<p>row cache for optimizing point lookups.</p>
+<p>LRU cache replacement policy.</p>
+<p>a point lookup missed the memtables, the key of the query is hashed to its corresponding slot in the row cache for matches.</p>
+<p>只在行缓存中保存最新版本的记录，由于时间局部性，这些记录有最大的机会被访问。为了实现这一点，我们在刷新期间用行缓存中的新记录替换旧版本的记录，以减少flush可能导致的cache miss。</p>
+<p>block cache以数据块为单位缓冲数据。它为miss行缓存或 范围查询的每个请求提供服务(所以图5 中指向block cache有两条路径). table cache包含指向相应区段的子表头的元数据信息。找到extent后，我们使用Bloom过滤器过滤出不匹配的key。然后，我们搜索索引块来定位记录，最后从它的数据块中检索它。</p>
+<p>由于 spatial locality, block cache可以作为row cache的补充.</p>
+<p><img src="https://i.loli.net/2021/05/07/56a3pudVTzeEK9U.png" srcset="/img/loading.gif" alt="image-20210507190136306"></p>
+<p>multi version metadata index ,reuse extent without actually moving in the disk.</p>
+<p><img src="https://i.loli.net/2021/05/07/xoM3Cw1e4stRF2n.png" srcset="/img/loading.gif" alt="image-20210507190530999"></p>
+<p><img src="https://i.loli.net/2021/05/07/Z7DIs2Kf1zEoBek.png" srcset="/img/loading.gif" alt="image-20210507190641682"></p>
+<p>Incremental cache replacement</p>
+<p>During compactions, we check whether the data blocks of an extent to be merged are cached. If so, we replace the old blocks in the cache with the newly merged ones at the same place, instead of simply evicting all old ones</p>
+<p>reduces the cache misses by keeping some blocks both updated and unmoved in the block cache</p>
+<p>如果不更新cache 而是简单的evict from cache,那么下次访问这些block时还会产生io.</p>
+<h4 id="write-path"><a href="#write-path" class="headerlink" title="write path"></a>write path</h4><p>memtable lock free skiplist </p>
+<p>the state-of-the-art implementation of the skiplist-based memtables has a performance issue when querying hot records. Frequent updates on a single record generate many versions. If a hot record matches the predicate of a query with interests in only the latest version, the query may have to scan many old versions to locate the requested one.</p>
+<p><img src="https://i.loli.net/2021/05/07/QPjiNuw79rOCD2k.png" srcset="/img/loading.gif" alt="image-20210507193928980"></p>
+<p>将同一记录的新版本垂直地附加到原始节点旁边，形成一个新的链表。减少扫描不必要的旧版本造成的开销</p>
+<p>Asynchronous writes in transactions</p>
+<p>避免one thread one transaction 写磁盘时的延迟,没有充分利用线程资源,在进行io时线程处于等待状态. 在一个大小为8的的队列中,只有一个线程在提交写,同时batch commit可以提高io.</p>
+<p>Multi-staged pipeline</p>
+<ul>
+<li>在第一阶段，log buffering，线程从事务缓冲区收集每个写请求的wals(写前日志)到内存驻留日志缓冲区，并计算它们对应的CRC32错误检测代码。这个阶段包括计算和仅访问主存</li>
+<li>在第二个阶段，log flushing，线程将缓冲区中的日志刷新到磁盘。刷新日志后，日志文件中的日志序号会上升。这些线程然后将已经被记录的写任务推到下一个阶段，</li>
+<li>writing memtables,多个线程并行地追加活动memtable中的记录。这个阶段只访问主存</li>
+<li>commits，所有任务完成的事务最终由多个线程并行提交，它们使用的资源，如锁被释放</li>
+</ul>
+<p>第一个和第三个阶段访问主存中不同的数据结构，而第二个阶段写入磁盘。因此，重叠它们可以提高主存和磁盘的利用率。</p>
+<p>由于在前两个阶段的数据依赖关系(log buffer 或者 log flush 需要保证顺序),每个阶段我们只安排一个线程。对于其他阶段,我们分配多个线程并行处理。从前两个阶段提取任务的操作是抢占式的，只允许第一个到达的线程处理该阶段。其他阶段是并行，允许多个线程并行工作。</p>
+<p><img src="https://i.loli.net/2021/05/07/laife4G6CIxQLtu.png" srcset="/img/loading.gif" alt="image-20210507210044102"></p>
+<h3 id="flush-and-compaction"><a href="#flush-and-compaction" class="headerlink" title="flush and compaction"></a>flush and compaction</h3><p>intra-Level0 compactions to actively merge warm extents in Level0</p>
+<p><strong>data reuse</strong></p>
+<p>在压缩过程中重用区段和数据块，以减少合并两个相邻层(即Leveli和Leveli+1)所需的I/ o数量。为了增加重用的机会并使其有效，我们将一个区段的大小减少到2 MB，并进一步将一个区段划分为多个16 KB的数据块。如果压缩过程中涉及到的某个区段的键范围没有与其他区段的键范围重叠，我们只需更新其对应的元数据索引，而不实际将其移动到磁盘上，就可以重用它。</p>
+<p><img src="https://i.loli.net/2021/05/07/2wipISZTUBjuX5a.png" srcset="/img/loading.gif" alt="image-20210507200014850"></p>
+<p><strong>Asynchronous I/O</strong></p>
+<p>压缩操作包括三个互不相干的阶段:</p>
+<ul>
+<li>从存储中检索两个输入区段，</li>
+<li>合并它们</li>
+<li>将合并后的区段(一个或多个)写回存储。</li>
+</ul>
+<p>第一和第三阶段是I/O阶段，而第二阶段是计算密集型阶段。我们在第一和第三阶段发出异步I/O请求。第二阶段是作为第一I/O阶段的回调函数实现的。当多个压缩并行运行时，第二阶段的执行与其他阶段的执行重叠，充分利用io。</p>
+<p><strong>FPGA</strong></p>
+<p>在X-Engine中区分不同的Compaction</p>
+<ul>
+<li>intra-Level0 Compaction，level 0 内部的compaction 不会进入level1 </li>
+<li>Minor Compaction，在每两个Level之间合并，except the largest level</li>
+<li>Major Compaction，合并最大级和它上面那一级</li>
+<li>Self-Major Compaction，在最大级内进行合并，减少碎片，删除无用records。</li>
+</ul>
+<p>阿里巴巴的一个在线应用程序tailored的配置示例。在这个应用程序中，有频繁的删除。当应该删除的记录数量达到其阈值时，将触发压缩来删除这些记录，并将这种压缩给予最高优先级，以防止存储空间的浪费。在删除之后，将对Level0内的压缩进行优先级排序，以帮助加快对Level0中最近插入的记录的查找。minor、major和self major分别按此顺序排列</p>
+<p>compaction concurrent at the level of sub-tables</p>
+<p>感觉sub-table的概念类似与clickhouse中的分区.</p>
 
             </div>
             <hr>
@@ -305,7 +301,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/LaTeX/">LaTeX</a>
+                      <a class="hover-with-bg" href="/tags/paper-reading/">paper reading</a>
                     
                   </div>
                 
@@ -318,9 +314,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/24/LaTeX%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4(3)/">
+                      <a href="/2021/05/07/cstore/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LaTeX常用命令(3)</span>
+                        <span class="hidden-mobile">C-store</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -328,8 +324,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/12/23/LaTeX%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4(1)/">
-                        <span class="hidden-mobile">LaTeX常用命令(1)</span>
+                      <a href="/2021/03/08/spitfire/">
+                        <span class="hidden-mobile">Spitfire</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
